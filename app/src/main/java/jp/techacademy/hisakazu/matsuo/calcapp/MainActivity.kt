@@ -28,29 +28,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, SecondActivity::class.java)
 
 
-        val num1 = Integer.parseInt(editText1.getText().toString())
-        val num2 = Integer.parseInt(editText2.getText().toString())
+        val num1 = editText1.getText().toString().toDouble()
+        val num2 = editText2.getText().toString().toDouble()
+        Log. d("test", "${num1}")
 
 
             if (v.id == R.id.button1) {
                 val result = num1 + num2
                 intent.putExtra("RESULT" , result)
+                Log. d("test", "result=${result}")
             }
 
-              if (v.id == R.id.button2) {
-            val result = num1 - num2
-            intent.putExtra("RESULT" , result)
-        }
+            if (v.id == R.id.button2) {
+                val result = num1 - num2
+                intent.putExtra("RESULT" , result)
+            }
 
-        if (v.id == R.id.button3) {
-            val result = num1 * num2
-            intent.putExtra("RESULT" , result)
-        }
+            if (v.id == R.id.button3) {
+                val result = num1 * num2
+                intent.putExtra("RESULT" , result)
+            }
 
-        if (v.id == R.id.button4) {
-            val result = num1 / num2
-            intent.putExtra("RESULT" , result)
-        }
+            if (v.id == R.id.button4) {
+                val result = num1 / num2
+                intent.putExtra("RESULT" , result)
+            }
 
         startActivity(intent)
 
