@@ -12,24 +12,8 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val value1 = intent.getIntExtra("VALUE1", 0)
-        val value2 = intent.getIntExtra("VALUE2", 0)
-
-        fun onClick(v: View) {
-              if (v.id == R.id.button1) {
-                  textView.text = "${value1 + value2}"
-              }
-               if (v.id == R.id.button2) {
-                   textView.text = "${value1 - value2}"
-               }
-              if (v.id == R.id.button3) {
-                  textView.text = "${value1 * value2}"
-              }
-              if (v.id == R.id.button4) {
-                  textView.text = "${value1 / value2}"
-              }
-        }
-
+        val result = intent.getIntExtra("RESULT", 0)
+        textView.text = result.toString()
        }
 
     }

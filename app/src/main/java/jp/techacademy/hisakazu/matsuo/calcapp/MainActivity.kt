@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import jp.techacademy.hisakazu.matsuo.calcapp.R
+import kotlinx.android.synthetic.main.activity_second.*
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -23,20 +24,42 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button4.setOnClickListener(this)
     }
 
-    override fun onClick(v: View?) {
+    override fun onClick(v: View){
         val intent = Intent(this, SecondActivity::class.java)
 
 
         val num1 = Integer.parseInt(editText1.getText().toString())
         val num2 = Integer.parseInt(editText2.getText().toString())
 
-        //val num1=editText.text.toString()
-        //val num2=30
-        intent.putExtra("VALUE1",num1)
-        intent.putExtra("VALUE2", num2)
+
+            if (v.id == R.id.button1) {
+                val result = num1 + num2
+                intent.putExtra("RESULT" , result)
+            }
+
+              if (v.id == R.id.button2) {
+            val result = num1 - num2
+            intent.putExtra("RESULT" , result)
+        }
+
+        if (v.id == R.id.button3) {
+            val result = num1 * num2
+            intent.putExtra("RESULT" , result)
+        }
+
+        if (v.id == R.id.button4) {
+            val result = num1 / num2
+            intent.putExtra("RESULT" , result)
+        }
+
         startActivity(intent)
 
     }
+
+
+
+
+
 
  //   val toastButton:  Button= findViewById(R.id.show_toast_button1)
  //   toastButton.setOnClickListener {
