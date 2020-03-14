@@ -12,7 +12,7 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val result = intent.getIntExtra("RESULT", 0)
+        val result = intent.getDoubleExtra("RESULT", 0.0)
         textView.text = result.toString()
        }
 

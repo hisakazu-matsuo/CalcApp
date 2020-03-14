@@ -1,0 +1,16 @@
+Index: app/src/main/java/jp/techacademy/hisakazu/matsuo/calcapp/SecondActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/jp/techacademy/hisakazu/matsuo/calcapp/SecondActivity.kt	(revision 474323b49aa016677c5ccc5e73c8102cde0d1d20)
++++ app/src/main/java/jp/techacademy/hisakazu/matsuo/calcapp/SecondActivity.kt	(date 1584187125912)
+@@ -12,7 +12,7 @@
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_second)
+ 
+-        val result = intent.getIntExtra("RESULT", 0)
++        val result = intent.getDoubleExtra("RESULT", 0.0)
+         textView.text = result.toString()
+        }
+ 
