@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
+import android.support.design.widget.Snackbar
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import jp.techacademy.hisakazu.matsuo.calcapp.R
 import kotlinx.android.synthetic.main.activity_second.*
-
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -24,48 +24,38 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button4.setOnClickListener(this)
     }
 
-    override fun onClick(v: View){
+    override fun onClick(v: View) {
         val intent = Intent(this, SecondActivity::class.java)
 
 
         val num1 = editText1.getText().toString().toDouble()
         val num2 = editText2.getText().toString().toDouble()
-        Log. d("test", "${num1}")
+        Log. d("test", "${num2}")
 
 
-            if (v.id == R.id.button1) {
+ //       if (num1<5) {
+  //          Log.d("test", "${num2}")
+
+  //      }
+             if (v.id == R.id.button1) {
                 val result = num1 + num2
-                intent.putExtra("RESULT" , result)
+                intent.putExtra("RESULT", result)
                 Log. d("test", "result=${result}")
-            }
-
-            if (v.id == R.id.button2) {
+             } else if (v.id == R.id.button2) {
                 val result = num1 - num2
-                intent.putExtra("RESULT" , result)
-            }
-
-            if (v.id == R.id.button3) {
+               intent.putExtra("RESULT", result)
+             } else if (v.id == R.id.button3) {
                 val result = num1 * num2
-                intent.putExtra("RESULT" , result)
-            }
-
-            if (v.id == R.id.button4) {
+                intent.putExtra("RESULT", result)
+             } else if (v.id == R.id.button4) {
                 val result = num1 / num2
-                intent.putExtra("RESULT" , result)
-            }
-
+                intent.putExtra("RESULT", result)
+             }
         startActivity(intent)
-
-    }
-
-
-
-
-
-
- //   val toastButton:  Button= findViewById(R.id.show_toast_button1)
- //   toastButton.setOnClickListener {
- //       Toast.makeText(this, "テストメッセージです", Toast.LENGTH_SHORT).show()
- //   }
+        }
 
 }
+
+
+
+
