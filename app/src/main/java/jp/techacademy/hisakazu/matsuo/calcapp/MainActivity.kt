@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
 
         button1.setOnClickListener(this)
@@ -26,42 +25,46 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        val intent = Intent(this, SecondActivity::class.java)
-
-        val num1 = editText1.getText().toString().toDouble()
-        val num2 = editText2.getText().toString().toDouble()
-        Log. d("test", "${num1}")
-        Log. d("test", "${num2}")
 
 
- //      if (num1==null || num2==null) {
+        if (editText1.getText().toString().isEmpty() || editText2.getText().toString().isEmpty()) {
+            Log. d("test", "IN")
+            setContentView(R.layout.activity_main)
+                   Snackbar.make(rootLayout , "数値を先に入力して下さい", Snackbar.LENGTH_SHORT)
+                      .setAction("戻る"){
+                     } .show()
 
-        if (num1==null || num2==null) {
-          setContentView(R.layout.activity_main)
-           val snackbar = Snackbar.make(rootLayout , "数値を先に入力して下さい", Snackbar.LENGTH_INDEFINITE)
-               .setAction("Action"){
-                   Log.d("UI_PARTS", "Snackbar")
-               } .show()
+        }else{
 
-        }
-            else if (v.id == R.id.button1) {
+            val intent = Intent(this, SecondActivity::class.java)
+
+            val num1 = editText1.getText().toString().toDouble()
+            val num2 = editText2.getText().toString().toDouble()
+            //Log. d("test", "${num1}")
+            //Log. d("test", "${num2}")
+
+
+            if (v.id == R.id.button1) {
                 val result = num1 + num2
                 intent.putExtra("RESULT", result)
                 Log. d("test", "result=${result}")
-             } else if (v.id == R.id.button2) {
+            } else if (v.id == R.id.button2) {
                 val result = num1 - num2
-               intent.putExtra("RESULT", result)
-             } else if (v.id == R.id.button3) {
+                intent.putExtra("RESULT", result)
+            } else if (v.id == R.id.button3) {
                 val result = num1 * num2
                 intent.putExtra("RESULT", result)
-             } else if (v.id == R.id.button4) {
+            } else if (v.id == R.id.button4) {
                 val result = num1 / num2
                 intent.putExtra("RESULT", result)
-             }else{
+            }else{
 
-       }
+            }
 
-        startActivity(intent)
+            startActivity(intent)
+
+        }
+
         }
 
 }
