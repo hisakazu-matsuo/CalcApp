@@ -29,10 +29,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         if (editText1.getText().toString().isEmpty() || editText2.getText().toString().isEmpty()) {
             Log. d("test", "IN")
-            setContentView(R.layout.activity_main)
-                   Snackbar.make(rootLayout , "数値を先に入力して下さい", Snackbar.LENGTH_SHORT)
-                      .setAction("戻る"){
-                     } .show()
+//            setContentView(R.layout.activity_main)
+            Snackbar.make(rootLayout , "数値を先に入力して下さい", Snackbar.LENGTH_INDEFINITE)
+                     .setAction(""){
+                         onClick(v)
+                     }.show()
+
 
         }else{
 
